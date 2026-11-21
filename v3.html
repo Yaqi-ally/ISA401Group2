@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>机制比价 · 直播购物机制对比</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark"></span>
+      <span class="brand-text">
+        <strong>机制比价</strong>
+      </span>
+    </a>
+    <nav class="nav-links">
+      <a href="#rules">对比规则</a>
+      <a href="#result" id="nav-result">对比结果</a>
+      <span class="chip"><i></i>演示数据</span>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 首页：输入 -->
+  <section class="hero" id="home">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">双十一 · 直播机制观察</p>
+        <h1>同一个商品，<br><span class="hl">谁家的机制更划算</span>？</h1>
+        <p class="lede">
+          输入商品名（或把直播间链接连标题一起粘进来）。我们找出同一时段在播的同款，把赠品折算成统一容量单价，
+          再告诉你差价到底藏在哪。
+        </p>
+
+        <form class="search" id="search-form" autocomplete="off">
+          <span class="search-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+              <path d="M10 13.5a3.5 3.5 0 0 0 5 0l3-3a3.5 3.5 0 0 0-5-5l-1.6 1.6"/>
+              <path d="M14 10.5a3.5 3.5 0 0 0-5 0l-3 3a3.5 3.5 0 0 0 5 5l1.6-1.6"/>
+            </svg>
+          </span>
+          <input id="link-input" type="text" placeholder="输入商品名，如「花知晓冬日梦礼盒」…" aria-label="商品搜索">
+          <button type="submit">开始对比</button>
+        </form>
+
+        <div class="samples">
+          <span class="samples-label">试试示例</span>
+          <button class="sample" data-sample="loreal">欧莱雅</button>
+          <button class="sample" data-sample="lancome">兰蔻</button>
+          <button class="sample" data-sample="dove">多芬</button>
+          <button class="sample" data-sample="empty">未收录</button>
+        </div>
+      </div>
+
+      <aside class="visual" aria-hidden="true">
+        <p class="visual-label">近期性价比之王</p>
+
+        <div class="vstage">
+          <div class="vcard winner tone-a">
+            <div class="vtop">
+              <span>淘宝 · 欧莱雅官方旗舰店</span>
+              <span class="vflag">性价比之王</span>
+            </div>
+            <div class="vprice"><span class="cur">¥</span>289</div>
+            <div class="vunit">折算 <b>¥5.22</b>/ml</div>
+            <div class="vmeta">正装 30ml ＋ 同款小样 22.5ml ＋ 面膜 ×2</div>
+          </div>
+
+          <div class="vcard winner tone-b">
+            <div class="vtop">
+              <span>抖音 · 大杨的日用铺</span>
+              <span class="vflag">性价比之王</span>
+            </div>
+            <div class="vprice"><span class="cur">¥</span>59.9</div>
+            <div class="vunit">折算 <b>¥0.067</b>/ml</div>
+            <div class="vmeta">洗发水 700ml ＋ 同款旅行装 200ml</div>
+          </div>
+
+          <div class="vcard winner tone-c">
+            <div class="vtop">
+              <span>抖音 · 琦儿直播间</span>
+              <span class="vflag">性价比之王</span>
+            </div>
+            <div class="vprice"><span class="cur">¥</span>899</div>
+            <div class="vunit">折算 <b>¥17.98</b>/ml</div>
+            <div class="vmeta">小黑瓶 50ml ＋ 同款小样 30ml ＋ 眼罩 ×1</div>
+          </div>
+        </div>
+
+        <div class="vdots"><i></i><i></i><i></i></div>
+      </aside>
+    </div>
+
+    <ul class="rules" id="rules">
+      <li>
+        <span class="rule-no">规则一</span>
+        <h3>只比同款、同规格</h3>
+        <p>不同商品千人千面，谁更好说不清。这里只比同一支精华的 30ml 与 30ml。</p>
+      </li>
+      <li>
+        <span class="rule-no">规则二</span>
+        <h3>只比同时段在播</h3>
+        <p>下架、没开播的链接没有比较意义，所以对比严格限定在同一采集时段内。</p>
+      </li>
+      <li>
+        <span class="rule-no">规则三</span>
+        <h3>赠品按价值折算</h3>
+        <p>同款小样直接加容量；异款赠品人工核算市价，再折成等效容量摊进单价。</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 结果页 -->
+  <section class="result" id="result" hidden aria-live="polite"></section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="foot-inner">
+    <p><strong>机制比价</strong> · 直播购物机制对比</p>
+    <p class="foot-note">对比结论由「正装 + 赠品折算」的单价生成，仅供购物决策参考；会员价等平台规则暂未计入。</p>
+    <p class="foot-note">数据版本 <strong>2026-11-18d</strong> · 已收录 192 个商品 · 商品链接全量录入（淘宝+抖音）</p>
+  </div>
+</footer>
+
+<script src="assets/data-v4.js"></script>
+<script src="assets/app-v3.js"></script>
+</body>
+</html>
