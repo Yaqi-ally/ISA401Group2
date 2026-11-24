@@ -87,8 +87,30 @@
     '<rect x="9.5" y="14.5" width="25" height="49.5" rx="6" stroke="rgba(90,80,60,.12)"/>' +
     '</svg>';
 
+  var PRODUCT_IMAGES = [
+    [/海蓝之谜.*奇迹面霜/, 'assets/products/tb-t003.webp'],
+    [/兰蔻.*菁纯面霜/, 'assets/products/tb-t007.webp'],
+    [/兰蔻.*菁纯眼霜/, 'assets/products/tb-t008.webp'],
+    [/卡诗.*黑钻.*精油/, 'assets/products/tb-t031.webp'],
+    [/花知晓.*雪精灵/, 'assets/products/dy-t05.webp'],
+    [/彩棠.*双生气垫/, 'assets/products/tb-t136.webp'],
+    [/彩棠.*妆前乳/, 'assets/products/tb-t132.webp'],
+    [/YSL.*(Libre|自由之水)/i, 'assets/products/tb-t104.webp'],
+    [/花西子.*散粉/, 'assets/products/tb-t021.webp']
+  ];
+
+  function productArt(p) {
+    var label = String(p.brand) + ' ' + String(p.name);
+    for (var i = 0; i < PRODUCT_IMAGES.length; i++) {
+      if (PRODUCT_IMAGES[i][0].test(label)) {
+        return '<img src="' + PRODUCT_IMAGES[i][1] + '" alt="">';
+      }
+    }
+    return bottleSVG;
+  }
+
   /* ---------- 卡片 ---------- */
-  function card(r, i, total) {
+  function card(r, i, total, p) {
     var l = r.raw;
     var tone = TONES[i % TONES.length];
     var isBest = i === 0 && total > 1;
@@ -106,7 +128,7 @@
           '</span>' +
         '</div>' +
         '<div class="main">' +
-          '<div class="thumb">' + bottleSVG + '</div>' +
+          '<div class="thumb">' + productArt(p) + '</div>' +
           '<div class="main-text">' +
             '<div class="channel">' +
               '<span class="dot"></span>' + esc(l.channel) +
@@ -293,7 +315,7 @@
       })
       .sort(function (a, b) { return a.unit - b.unit; });
 
-    var cardsHTML = rows.map(function (r, i) { return card(r, i, rows.length); }).join('');
+    var cardsHTML = rows.map(function (r, i) { return card(r, i, rows.length, p); }).join('');
 
     el.result.innerHTML = '' +
       '<div class="result-head">' +
@@ -305,7 +327,7 @@
       '</div>' +
 
       '<div class="product-bar">' +
-        '<div class="pb-thumb">' + bottleSVG + '</div>' +
+        '<div class="pb-thumb">' + productArt(p) + '</div>' +
         '<div class="pb-text">' +
           '<div class="pb-brand">' + esc(p.brand) + '</div>' +
           '<h3>' + esc(p.name) + '</h3>' +
