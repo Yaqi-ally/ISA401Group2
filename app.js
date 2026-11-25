@@ -40,7 +40,6 @@ const elements = {
   compareDialog: document.querySelector("#compareDialog"),
   compareDialogBody: document.querySelector("#compareDialogBody"),
   toastRegion: document.querySelector("#toastRegion"),
-  cursor: document.querySelector(".cursor-follower"),
 };
 
 const state = {
@@ -135,7 +134,7 @@ function renderOffers() {
   }
 
   elements.grid.innerHTML = offers
-    .map((offer, index) => {
+    .map((offer) => {
       const selected = state.selectedIds.includes(offer.id);
       const discount = discountPercent(offer.officialPrice, offer.price);
       const perUnit = unitPrice(offer.price, offer.capacity);
@@ -196,7 +195,7 @@ function renderOffers() {
                 data-detail="${escapeHtml(offer.id)}"
                 aria-label="查看 ${escapeHtml(offer.name)} 的完整直播机制"
                 title="查看完整机制"
-              >${index % 2 === 0 ? "↗" : "＋"}</button>
+              >详情</button>
             </div>
           </div>
         </article>
@@ -231,7 +230,7 @@ function renderSelectionUi() {
       <div class="receipt-empty">
         <div>
           <span aria-hidden="true">＋</span>
-          <p>从左侧货架选 2–3 件商品，这里会自动生成本地比价小票。</p>
+          <p>从货架选 2–3 件商品，这里会自动生成本地比价小票。</p>
         </div>
       </div>
     `;
@@ -631,27 +630,6 @@ function bindReveal() {
   revealItems.forEach((item) => observer.observe(item));
 }
 
-function bindCursor() {
-  if (!elements.cursor || window.matchMedia("(pointer: coarse)").matches) return;
-  let visible = false;
-  document.addEventListener("pointermove", (event) => {
-    if (!visible) {
-      visible = true;
-      elements.cursor.classList.add("is-visible");
-    }
-    elements.cursor.style.left = `${event.clientX}px`;
-    elements.cursor.style.top = `${event.clientY}px`;
-    elements.cursor.classList.toggle(
-      "is-large",
-      Boolean(event.target.closest("a,button,[data-drag-item]")),
-    );
-  });
-  document.documentElement.addEventListener("mouseleave", () => {
-    visible = false;
-    elements.cursor.classList.remove("is-visible");
-  });
-}
-
 function initialize() {
   renderOffers();
   renderSelectionUi();
@@ -659,7 +637,6 @@ function initialize() {
   bindDialogs();
   bindHeroDrag();
   bindReveal();
-  bindCursor();
   document.title = `LIVE OFFSET｜${OFFERS.length} 件直播美妆比价`;
 }
 

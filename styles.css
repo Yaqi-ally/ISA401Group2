@@ -1,17 +1,33 @@
+@font-face {
+  font-family: "Smiley Sans";
+  src: url("./assets/fonts/SmileySans-Oblique.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Sans SC Hero";
+  src: url("./assets/fonts/NotoSansSC-hero-900.ttf") format("truetype");
+  font-weight: 900;
+  font-display: swap;
+}
+
 :root {
   --paper: #f5f0e6;
   --paper-deep: #ebe2d3;
   --white: #fffaf2;
-  --ink: #17224d;
-  --ink-soft: #4f5775;
-  --cobalt: #405ba9;
+  --ink: #40263f;
+  --ink-soft: #685665;
+  --cobalt: #585b95;
+  --blue: var(--cobalt);
   --sky: #dce8f1;
-  --red: #f0523f;
+  --red: #b94237;
   --red-deep: #ba3429;
-  --pink: #f1c5c8;
-  --acid: #dbe985;
-  --gold: #e9c760;
-  --line: rgba(23, 34, 77, 0.22);
+  --pink: #f3bcac;
+  --acid: #ffdb86;
+  --gold: #efbf57;
+  --line: rgba(64, 38, 63, 0.22);
+  --heading-font: "Smiley Sans", "Microsoft YaHei", sans-serif;
   --display: "Arial Black", "Microsoft YaHei", "PingFang SC", sans-serif;
   --body: "Arial", "Microsoft YaHei", "PingFang SC", sans-serif;
   --mono: "Courier New", "Microsoft YaHei", monospace;
@@ -82,7 +98,7 @@ a:focus-visible,
 input:focus-visible,
 select:focus-visible,
 [tabindex="0"]:focus-visible {
-  outline: 4px solid var(--acid);
+  outline: 3px solid #3155a1;
   outline-offset: 4px;
 }
 
@@ -3226,6 +3242,204 @@ select:focus-visible,
   }
 }
 
+.brand-sticker {
+  width: 81px;
+  height: auto;
+  transform: rotate(-4deg);
+  filter: drop-shadow(1px 2px 0 #512f431d);
+}
+.wordmark-sub {
+  max-width: 4em;
+  color: #49334b;
+  font: 750 13px/1.35 var(--body);
+}
+.hero {
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  min-height: auto;
+  gap: clamp(24px, 4vw, 64px);
+  padding-block: clamp(50px, 7vw, 105px);
+  background: radial-gradient(#a67c691b .9px, transparent 1px) 0 0 / 7px 7px, #faf3e7;
+}
+.hero-category {
+  margin: 0 0 17px;
+  font-weight: 800;
+  color: #82473f;
+  letter-spacing: .12em;
+}
+.hero h1 {
+  --comic-ink: #382335;
+  max-width: none;
+  font: 900 clamp(48px, 5.45vw, 94px)/1.18 "Noto Sans SC Hero", var(--body);
+  letter-spacing: -.035em;
+  color: #fff1cf;
+  -webkit-text-stroke: .048em var(--comic-ink);
+  paint-order: stroke fill;
+  text-shadow: .02em .025em var(--comic-ink), .04em .05em var(--comic-ink),
+    .06em .075em var(--comic-ink), .082em .095em #e6a270;
+  transform: rotate(-2deg) skewX(-6deg);
+  transform-origin: left bottom;
+}
+.hero-emphasis { color: #fa765a; }
+.hero-last-line { color: #ffcf70; }
+.hero-lede { margin-top: 20px; }
+.hero-actions { margin-top: 23px; }
+.hero-actions .primary-button {
+  color: #fff9e7;
+  background: #a33e34;
+  border-color: #493044;
+  border-radius: 16px 13px 17px 12px;
+  box-shadow: 3px 4px 0 #493044;
+}
+.hero-stats { border-top: 1px dashed #b7a99e; padding-top: 13px; margin-top: 25px; }
+.beauty-basket {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  align-self: center;
+  isolation: isolate;
+  background: url("./assets/tray-stickers/basket.webp") center / contain no-repeat;
+  filter: drop-shadow(2px 8px 4px #463a4924);
+}
+.beauty-basket .drag-hint {
+  top: -13px;
+  right: 5%;
+  color: #422c42;
+  background: #ffedab;
+  box-shadow: 2px 2px 0 #553c4c;
+  border-color: #553c4c;
+  transform: rotate(3deg);
+  font-size: 12px;
+}
+.hero-stickers .hero-product {
+  margin: 0;
+  width: 34%;
+  height: 52%;
+  top: 24%;
+  left: 8%;
+  transform: rotate(-12deg);
+  touch-action: none;
+  filter: drop-shadow(2px 5px 2px #49314142);
+}
+.hero-stickers .hero-product:nth-child(2) {
+  top: 13%;
+  left: 38%;
+  width: 26%;
+  height: 68%;
+  transform: rotate(12deg);
+}
+.hero-stickers .hero-product:nth-child(3) {
+  top: 38%;
+  left: 63%;
+  width: 29%;
+  height: 47%;
+  transform: rotate(-5deg);
+}
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .beauty-basket { max-width: 680px; justify-self: center; }
+}
+@media (max-width: 660px) {
+  .hero { gap: 34px; padding-block: 33px; }
+  .hero h1 { font-size: clamp(40px, 10.8vw, 64px); }
+  .brand-sticker { width: 66px; }
+  .beauty-basket .drag-hint { padding: 3px 8px; font-size: 10px; }
+}
+.hero-stickers img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.site-header { background: var(--white); min-height: 72px; }
+.catalog { padding-block: clamp(42px,5vw,80px); background: var(--white); }
+.catalog .section-heading h2, .mechanism-heading h2 { font-size: clamp(34px,4vw,58px); line-height: 1.1; }
+.catalog-layout--single { grid-template-columns: minmax(0,1fr); }
+.offer-card { border-color: #c1baaf; border-radius: 16px; box-shadow: 0 4px 0 #ddd6cb; }
+.offer-title { min-height: 0; }
+.offer-room, .offer-unit, .offer-fact { font-size: 12px; }
+.offer-card.is-selected { box-shadow: 0 4px 0 #d89987; }
+.mechanism-section { background: #e6ebf0; }
+.mechanism-paper-head p, .ticket-bundle, .ticket-note, .ticket-metrics dt, .mechanism-paper-foot { font-size: 12px; }
+.ticket-rank, .ticket-platform, .mechanism-stamp { font-size: 11px; }
+@media (min-width: 1050px) {
+  .catalog-layout--single .product-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+}
+@media (min-width: 661px) and (max-width: 1049px) {
+  .catalog-layout--single .product-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+/* The condensed display face is reserved for editorial headings. */
+.section-heading h2, .mechanism-heading h2, .method h2 {
+  font-family: var(--heading-font);
+  font-weight: 400;
+  font-synthesis: none;
+  letter-spacing: .005em;
+  line-height: 1.16;
+}
+.method-card h3, .modal-header h2, .receipt-title-row h3 {
+  font-family: var(--body);
+  font-weight: 700;
+  letter-spacing: -.015em;
+  line-height: 1.25;
+}
+.hero-category, .wordmark-sub, .main-nav a, .compare-launch, .hero-actions a,
+.hero-actions button, .drag-hint, .filter-chip, .compare-toggle, .details-button {
+  font-family: var(--body);
+  font-weight: 700;
+}
+.wordmark-sub { flex-shrink: 0; max-width: none; font-size: 13px; line-height: 1.35; }
+.wordmark-sub span { display: block; }
+.main-nav a, .compare-launch, .filter-chip, .compare-toggle, .details-button { font-size: 14px; }
+.hero-actions a, .hero-actions button { font-size: 15px; }
+.hero-category { font-size: 15px; letter-spacing: .08em; }
+.hero-stats dt {
+  font: 700 27px/1.2 var(--body);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.025em;
+}
+.hero-stats dd { font: 12px/1.35 var(--body); }
+.ticker { background: #f5d3b6; }
+.ticker-track span { font: 600 13px/1.4 var(--body); }
+.section-heading { border-bottom: 1px dashed var(--line); }
+.filter-shell { background: #f8ebdb; box-shadow: 0 3px 0 #e1d2c2; }
+.filter-chip { background: var(--white); border-radius: 13px 15px 11px 12px; }
+.filter-chip.is-active { background: var(--ink); border-color: var(--ink); box-shadow: 2px 2px 0 #e5b69a; }
+.search-field > span, .select-field > span, .mechanism-select > span,
+.insight-box span, .detail-price-cell span { font: 700 12px/1.4 var(--body); }
+.offer-card { border-color: #bca99e; box-shadow: 2px 4px 0 #decfc1; }
+.offer-card.is-selected { border-color: var(--red); box-shadow: 2px 4px 0 #daa69a; }
+.offer-saving { outline: 3px solid var(--white); }
+.offer-saving:not(.is-unknown) { background: #ac4037; }
+.compare-toggle[aria-pressed="true"] { background: #ffdca0; }
+.offer-kicker, .offer-platform, .offer-variant { font-size: 11px; }
+.offer-price, .ticket-product strong, .insight-box strong, .table-price,
+.detail-price-cell strong, .ticket-metrics dd, .mechanism-table .table-value {
+  font-variant-numeric: lining-nums tabular-nums;
+  letter-spacing: -.025em;
+}
+.mechanism-section {
+  background: radial-gradient(#7c608a1f .8px, transparent 1px) 0 0 / 8px 8px, #eee8f1;
+}
+.mechanism-ticket { border-radius: 16px 13px 17px 11px; }
+.mechanism-ticket.is-best { background: #fff0cb; border-color: #a07d54; }
+.mechanism-ticket.is-best .ticket-rank { color: #654422; }
+.mechanism-table thead th { background: #f6eadb; }
+.mechanism-table thead strong, .mechanism-table tbody th, .ticket-metrics dd { font-size: 13px; }
+.mechanism-table thead span, .mechanism-table tbody td span, .ticket-metrics small,
+.mechanism-table tbody th small { font-size: 11px; }
+.mechanism-table tbody th small { color: var(--ink-soft); }
+.mechanism-summary p { font-size: 14px; }
+.method h2 { color: #ffdf9e; }
+.method-card { min-height: auto; border: 2px solid #fff1d8; box-shadow: 3px 4px 0 #291829; }
+.method-card h3 { margin: 10px 0 14px; }
+.method-card p { color: var(--ink-soft); font-size: 15px; }
+.modal { background: var(--white); }
+.modal-header { border-bottom: 1px dashed var(--line); }
+.insight-box { background: #fbf0df; }
+@media (max-width: 900px) {
+  .site-header { grid-template-columns: 1fr auto; }
+}
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

@@ -8,7 +8,7 @@
       content="直播美妆商品比价原型：把到手价、规格、赠品、运费和直播机制放在同一张清单里。"
     />
     <title>LIVE OFFSET｜直播美妆比价</title>
-    <link rel="stylesheet" href="./styles.css?v=20261124-8" />
+    <link rel="stylesheet" href="./styles.css?v=20261124-15" />
   </head>
   <body>
     <a class="skip-link" href="#offers">跳到直播货架</a>
@@ -125,16 +125,16 @@
 
     <header class="site-header">
       <a class="wordmark" href="#top" aria-label="LIVE OFFSET 首页">
-        <span class="wordmark-main">LIVE<br />OFFSET</span>
-        <span class="wordmark-sub">直播比价研究所</span>
+        <img class="brand-sticker" src="./assets/tray-stickers/wordmark.webp" alt="LIVE OFFSET" width="81" height="54" />
+        <span class="wordmark-sub"><span>直播比价</span><span>研究所</span></span>
       </a>
       <p class="snapshot-pill" role="status">
         <span class="pulse-dot" aria-hidden="true"></span>
         历史快照 · 2026.11.18
       </p>
       <nav class="main-nav" aria-label="主要导航">
-        <a href="#offers">今晚货架</a>
-        <a href="#mechanism">同款机制</a>
+        <a href="#offers">直播货架</a>
+        <a href="#mechanism">同款比价</a>
         <a href="#method">怎么比</a>
         <button class="compare-launch" type="button" data-open-compare>
           比价清单
@@ -146,11 +146,9 @@
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy reveal">
-          <p class="eyebrow"><span>BEAUTY LIVE / 01</span> 别让倒计时替你算账</p>
+          <p class="hero-category">直播美妆比价</p>
           <h1 id="hero-title">
-            先看清
-            <span class="hero-italic">怎么减</span>
-            <span class="hero-outline">再下单</span>
+            先看清<span class="hero-emphasis">怎么减</span><br /><span class="hero-last-line">再下单</span>
           </h1>
           <p class="hero-lede">
             把直播价、券、规格、赠品和运费放进同一张清单。美妆直播比价，不只看谁喊得大声。
@@ -172,55 +170,16 @@
           </dl>
         </div>
 
-        <div class="hero-collage reveal" data-draggable-stage aria-label="可拖动的美妆样品陈列">
-          <div class="collage-backdrop" aria-hidden="true">
-            <span class="collage-word">LIVE</span>
-            <span class="collage-sun"></span>
-            <span class="collage-grid"></span>
-          </div>
-
-          <div class="hero-product-grid">
-            <figure class="hero-product compact-product" tabindex="0" data-drag-item aria-label="Byredo Super Cedar 香水，可拖动；聚焦后使用方向键移动">
-              <img class="hero-photo" src="./assets/hero-products/Byredo_SuperCedar.webp" alt="Byredo Super Cedar 香水" width="607" height="900" draggable="false" />
+        <div class="beauty-basket reveal" data-draggable-stage aria-label="装着三张可拖动美妆贴纸的购物篮">
+          <div class="hero-stickers">
+            <figure class="hero-product" tabindex="0" data-drag-item aria-label="海蓝之谜奇迹面霜，可拖动；聚焦后使用方向键移动">
+              <img src="./assets/tray-stickers/tb-t003.webp" alt="海蓝之谜奇迹面霜手绘贴纸" draggable="false" />
             </figure>
-            <figure class="hero-product compact-product" tabindex="0" data-drag-item aria-label="Acqua di Parma Oud and Spice 香水，可拖动；聚焦后使用方向键移动">
-              <img class="hero-photo" src="./assets/hero-products/AcquaDiParma_OudSpice.webp" alt="Acqua di Parma Oud and Spice 香水" width="451" height="900" draggable="false" />
+            <figure class="hero-product" tabindex="0" data-drag-item aria-label="卡诗黑钻护发精油，可拖动；聚焦后使用方向键移动">
+              <img src="./assets/tray-stickers/tb-t031.webp" alt="卡诗黑钻护发精油手绘贴纸" draggable="false" />
             </figure>
-            <figure class="hero-product compact-product" tabindex="0" data-drag-item aria-label="Celine Reptile 香水，可拖动；聚焦后使用方向键移动">
-              <img class="hero-photo" src="./assets/hero-products/Celine_Reptile.webp" alt="Celine Reptile 香水" width="405" height="900" draggable="false" />
-            </figure>
-            <figure class="hero-product compact-product" tabindex="0" data-drag-item aria-label="Le Labo The Noir 29 香水，可拖动；聚焦后使用方向键移动">
-              <img class="hero-photo" src="./assets/hero-products/LeLabo_TheNoir29.webp" alt="Le Labo The Noir 29 香水" width="400" height="900" draggable="false" />
-            </figure>
-            <figure class="hero-product compact-product" tabindex="0" data-drag-item aria-label="Polo Earth Ralph Lauren 香水，可拖动；聚焦后使用方向键移动">
-              <img class="hero-photo" src="./assets/hero-products/PoloEarth_RalphLauren.webp" alt="Polo Earth Ralph Lauren 香水" width="447" height="900" draggable="false" />
-            </figure>
-            <figure class="hero-product compact-product" tabindex="0" data-drag-item aria-label="Estée Lauder Futurist 妆前乳，可拖动；聚焦后使用方向键移动">
-              <img class="hero-photo" src="./assets/hero-products/EsteeLauder_Futurist_Primer.webp" alt="Estée Lauder Futurist 妆前乳" width="261" height="900" draggable="false" />
-            </figure>
-            <figure class="hero-product compact-product" tabindex="0" data-drag-item aria-label="YSL 黑色气垫，可拖动；聚焦后使用方向键移动">
-              <img class="hero-photo" src="./assets/hero-products/YSL_Black_Cushion.webp" alt="YSL 黑色气垫" width="720" height="729" draggable="false" />
-            </figure>
-            <figure class="hero-product compact-product" tabindex="0" data-drag-item aria-label="YSL 粉色气垫，可拖动；聚焦后使用方向键移动">
-              <img class="hero-photo" src="./assets/hero-products/YSL_Pink_Cushion.webp" alt="YSL 粉色气垫" width="720" height="864" draggable="false" />
-            </figure>
-            <figure class="hero-product compact-product" tabindex="0" data-drag-item aria-label="Bobbi Brown 唇釉，可拖动；聚焦后使用方向键移动">
-              <img class="hero-photo" src="./assets/hero-products/BobbiBrown_Lip.webp" alt="Bobbi Brown 唇釉" width="196" height="900" draggable="false" />
-            </figure>
-            <figure class="hero-product compact-product" tabindex="0" data-drag-item aria-label="NARS 唇膏，可拖动；聚焦后使用方向键移动">
-              <img class="hero-photo" src="./assets/hero-products/NARS_Lipstick.webp" alt="NARS 唇膏" width="157" height="900" draggable="false" />
-            </figure>
-            <figure class="hero-product compact-product" tabindex="0" data-drag-item aria-label="兰蔻唇膏，可拖动；聚焦后使用方向键移动">
-              <img class="hero-photo" src="./assets/hero-products/Lancome_Lipstick.webp" alt="兰蔻唇膏" width="354" height="900" draggable="false" />
-            </figure>
-            <figure class="hero-product compact-product" tabindex="0" data-drag-item aria-label="YSL 心形唇膏，可拖动；聚焦后使用方向键移动">
-              <img class="hero-photo" src="./assets/hero-products/YSL_Heart_Lipstick.webp" alt="YSL 心形唇膏" width="320" height="900" draggable="false" />
-            </figure>
-            <figure class="hero-product compact-product" tabindex="0" data-drag-item aria-label="CPB 遮瑕笔，可拖动；聚焦后使用方向键移动">
-              <img class="hero-photo" src="./assets/hero-products/CPB_Concealer.webp" alt="CPB 遮瑕笔" width="178" height="900" draggable="false" />
-            </figure>
-            <figure class="hero-product compact-product" tabindex="0" data-drag-item aria-label="NARS 调色隔离，可拖动；聚焦后使用方向键移动">
-              <img class="hero-photo" src="./assets/hero-products/NARS_ToneUp_Veil.webp" alt="NARS 调色隔离" width="207" height="900" draggable="false" />
+            <figure class="hero-product" tabindex="0" data-drag-item aria-label="兰蔻菁纯面霜，可拖动；聚焦后使用方向键移动">
+              <img src="./assets/tray-stickers/tb-t007.webp" alt="兰蔻菁纯面霜手绘贴纸" draggable="false" />
             </figure>
           </div>
 
@@ -247,11 +206,10 @@
       <section class="catalog" id="offers" aria-labelledby="offers-title">
         <header class="section-heading reveal">
           <div>
-            <p class="eyebrow">LIVE SHELF / 02</p>
-            <h2 id="offers-title">今晚的直播货架</h2>
+            <h2 id="offers-title">直播货架</h2>
           </div>
           <p class="section-intro">
-            从货架挑 2–3 件放进比价清单。低价会被看见，缺失的信息也不会藏起来。
+            搜索或筛选直播报价，选 2–3 件加入比价清单。
           </p>
         </header>
 
@@ -329,7 +287,6 @@
       <section class="mechanism-section" id="mechanism" aria-labelledby="mechanism-title">
         <header class="mechanism-heading reveal">
           <div>
-            <p class="eyebrow">SAME ITEM / LIVE</p>
             <h2 id="mechanism-title">同款机制小票</h2>
           </div>
           <label class="mechanism-select">
@@ -342,22 +299,18 @@
 
       <section class="method" id="method" aria-labelledby="method-title">
         <header class="method-heading reveal">
-          <p class="eyebrow">HOW TO OFFSET / 03</p>
           <h2 id="method-title">最低价之前，还有三道题。</h2>
         </header>
         <div class="method-grid">
           <article class="method-card reveal">
-            <span class="method-index">01</span>
             <h3>规格一样吗？</h3>
             <p>30ml 的精华和 50ml 的精华，不该只比两个大数字。能统一的商品，直接看每毫升 / 每克成本。</p>
           </article>
           <article class="method-card reveal">
-            <span class="method-index">02</span>
             <h3>赠品能估价吗？</h3>
             <p>数量多不等于价值高。未知容量、随机色号和空包装都应被标记，而不是自动加进“已省”。</p>
           </article>
           <article class="method-card reveal">
-            <span class="method-index">03</span>
             <h3>条件够得着吗？</h3>
             <p>会员价、首单资格、限时券和运费险都可能改变到手成本。资格不明确时，保留问号。</p>
           </article>
@@ -391,10 +344,10 @@
     </dialog>
 
     <div class="toast-region" aria-live="polite" aria-atomic="true" id="toastRegion"></div>
-    <div class="cursor-follower" aria-hidden="true"><span>拖 / 看</span></div>
+
 
     <script src="./assets/data-v4.js"></script>
     <script type="module" src="./mechanism.js"></script>
-    <script type="module" src="./app.js"></script>
+    <script type="module" src="./app.js?v=hero-stickers"></script>
   </body>
 </html>
